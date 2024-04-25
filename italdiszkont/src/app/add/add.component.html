@@ -1,0 +1,28 @@
+<div class="main_component">
+    
+    <h1>Új termék felvétele</h1>
+    <form [formGroup]="addForm" (ngSubmit)="upload()">
+    <mat-form-field>
+        <mat-label for="nev">név:</mat-label><input matInput type="text" formControlName="nev" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="leiras">leírás: </mat-label><input matInput type="text" formControlName="leiras" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="tipus">típus: </mat-label><input matInput type="text" formControlName="tipus" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="alkohol">alkohol mennyiség: </mat-label><input matInput type="number" formControlName="alkohol" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="ar">ár: </mat-label><input matInput type="number" formControlName="ar" />
+    </mat-form-field>
+    <!--<h4>Képfeltöltése</h4>
+    <p>
+        
+        <input type="file" (change)="onFileSelected($event)">
+    </p>-->
+    
+    <span><button mat-raised-button color="primary" >Termék felvétele</button></span>
+    </form>
+</div>

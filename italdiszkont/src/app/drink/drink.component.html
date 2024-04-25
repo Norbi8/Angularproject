@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="panel">
+        <mat-grid-list cols="4" >
+                <mat-grid-tile *ngFor="let item of allProducts; index as i">
+                    <mat-card class="card">
+                        <mat-card-header>
+                            <mat-card-title>{{item.nev}}</mat-card-title>
+                        </mat-card-header>
+                        <!--<img mat-card-image class="image"  [src]="loadedImages[i]">-->
+                        <mat-card-content>
+                            <p>típus: {{item.tipus}} </p>
+                            <p>leírás: {{item.leiras}}</p>
+                            <p>alkoholszint: {{ item.alkohol }} %</p>
+                            <p>ára: {{item.ar | hufseparator }}</p>
+                        </mat-card-content>    
+                        <mat-card-actions>
+                            <span><button  mat-raised-button *ngIf="loggedIn"  color="primary" [routerLink]="['/update',item.id]" routerLinkActive="router-link-active"   >Módosítás</button></span>
+                            <span><button  mat-raised-button *ngIf="loggedIn" color="accent" (click)="deleteProduct(item.id)">Törlés</button></span>
+                        </mat-card-actions>
+                    </mat-card>
+                </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <div class="search"> 
+        <mat-form-field>
+            <input matInput placeholder="Kereső(pontos név)" [(ngModel)]="searchQuery">
+        </mat-form-field>
+        <button  mat-raised-button style="width: 100%;" color="accent" (click)="search()">keresés</button>&nbsp;
+        <button  mat-raised-button style="width: 100%;" color="primary" (click)="sortasc()">Rendezés csökkenő</button>&nbsp;
+        <button  mat-raised-button style="width: 100%;" color="primary" (click)="sortdesc()">Rendezés növekvő</button>
+    </div>
+</div>

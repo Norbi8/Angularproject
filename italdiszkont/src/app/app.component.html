@@ -1,0 +1,7 @@
+<mat-toolbar>
+    <a class="navbara" *ngIf="(loggedInUser)" [routerLink]="['/add']"  >Termék felvétele</a>
+    <a class="navbara" [routerLink]="['/drink']"  >Áruk</a>
+    <a class="navbara" *ngIf="!(loggedInUser)" [routerLink]="['/login']"  >Belépés</a>
+    <a class="navbara" *ngIf="(loggedInUser)" [routerLink]="['/login']" (click)="logout()"  >Kijelentkezés</a>
+</mat-toolbar>
+<router-outlet></router-outlet>
